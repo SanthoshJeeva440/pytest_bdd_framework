@@ -2,9 +2,9 @@ name: Pytest BDD Selenium Framework
 
 on:
   push:
-    branches: [ "feature/ci-cd" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "feature/ci-cd" ]
+    branches: [ "main" ]
 
 permissions:
   contents: read
