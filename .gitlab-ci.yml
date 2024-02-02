@@ -1,0 +1,41 @@
+image: python:latest
+
+stages:
+  - build
+  - test
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  paths:
+    - .cache/pip
+
+before_script:
+  - python3 --version ; pip3 --version
+  - python3 -m pip install --upgrade pip
+  - pip install virtualenv
+  - virtualenv venv
+  - source venv/bin/activate
+
+build:
+  stage: build
+  script:
+    - python3 -m pip install -r requirements.txt
+    - python3 -m pip install webdriver-manager
+
+test-job:   
+  stage: test 
+  allow_failure: true   
+
+  # Run the tests  
+  script:
+    - pytest --headmode "headless"
+
+  artifacts:
+    when: always
+    name: "test-results"
+    paths:
+    - test-results/
+
+
