@@ -1,0 +1,6 @@
+QA = "http://adactinhotelapp.com/"
+STAGE = ""
+PROD = ""
+BROWSER = "chrome"
+USERNAME = "WebAuto123"
+PASSWORD = "Testing@12345"
