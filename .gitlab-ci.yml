@@ -24,7 +24,9 @@ build:
     - python3 -m pip install -r requirements.txt
     - python3 -m pip install webdriver-manager
 
-test-job:   
+test-job:
+  services:
+    - selenium/standalone-chrome   
   stage: test 
   allow_failure: true   
 
